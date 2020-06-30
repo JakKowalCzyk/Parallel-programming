@@ -39,7 +39,9 @@ object Lists {
    * @return The largest element in `xs`
    * @throws java.util.NoSuchElementException if `xs` is an empty list
    */
-  def max(xs: List[Int]): Int = maxHelper(xs.tail, xs.head)
+  def max(xs: List[Int]): Int =
+    if (xs.isEmpty) throw new NoSuchElementException
+    else maxHelper(xs.tail, xs.head)
 
   def maxHelper(xs: List[Int], max:Int):Int=
     if (xs.isEmpty) max
